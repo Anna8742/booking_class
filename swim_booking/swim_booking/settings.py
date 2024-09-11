@@ -76,7 +76,11 @@ WSGI_APPLICATION = 'swim_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'swim_db',
+        'USER': 'anna',
+        'PASSWORD': 'Code123!',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
