@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("<h1>Welcome to the Swimming Class Booking System</h1>")
+    return render(request, 'bookings/index.html')
