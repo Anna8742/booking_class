@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Book Swimming Class</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Book a Swimming Class</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="child">Choose Child:</label>
+            <select name="child">
+                {% for child in children %}
+                    <option value="{{ child.id }}">{{ child.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="class">Choose Class:</label>
+            <select name="swim_class">
+                {% for class in swim_classes %}
+                    <option value="{{ class.id }}">Class on {{ class.date }} at {{ class.time }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Book Class</button>
+        </form>
+    </main>
+</body>
+</html>
